@@ -1,22 +1,41 @@
 package com.example.login_feedback;
 
-import android.os.Bundle;
 import android.app.Activity;
-import android.view.Menu;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.RatingBar;
 
 public class Detail_Activity extends Activity {
+	private EditText name1;
+	private EditText age1;
+	private EditText contact1;
+	private RatingBar ratingBar;
+	private CheckBox feedback1;
+	private Button send1;
+	
+	
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_detail_);
+	
+	name1 = (EditText) findViewById(R.id.name);
+	age1= (EditText) findViewById(R.id.age);
+	contact1 = (EditText) findViewById(R.id.contact);
+	ratingBar = (RatingBar) findViewById(R.id.ratingBar1);
+	feedback1 = (CheckBox) findViewById(R.id.feedback);
+	send1 = (Button) findViewById(R.id.send);
+	
+	OnClickListener listner = new OnClickListener() {
+		
+@Override
+		public void onClick(View arg0) {
+			/************* Explicit Intent*********************/
+Intent intent = new Intent(getApplicationContext(), FeedbackActivity.class);
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_detail_);
-	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.detail_, menu);
-		return true;
-	}
-
-}
